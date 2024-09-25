@@ -18,10 +18,10 @@ def get_weather(city):
         description = data['weather'][0]['description']
         humidity = data['main']['humidity']
         windspeed = data['wind']['speed']
-        max_temp_Celsius  = data['main']['max_temp']
+        max_temp_Celsius  = data['main']['temp_max']
         #chaning mzc temperature to fahreniet and rounding it 
         max_temp_fahrenhiet = round(max_temp_Celsius *9/5) +32 
-        min_temp_Celsius  = data['main']['min_temp']
+        min_temp_Celsius  = data['main']['temp_min']
         #chaning min temperature to fahreniet and rounding it 
         min_temp_fahrenhiet = round(min_temp_Celsius *9/5) +32 
         
