@@ -1,6 +1,8 @@
 import requests
-
-API_KEY = '3780b24b3d3e6a3188c8a4a95adf27ad'
+from dotenv import load_dotenv
+import os
+load_dotenv()
+API_KEY = os.getenv('API_KEY')
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 
 def get_weather(city):
@@ -13,15 +15,15 @@ def get_weather(city):
         temp = data['main']['temp']
         description = data['weather'][0]['description']
         humidity = data['main']['humidity']
-        wind_speed = data['wind']['speed']
+        windspeed = data['wind']['speed']
         
         print(f"City: {city}")
         print(f"Temperature: {temp}°C")
         print(f"Weather: {description}")
         print(f"Humidity: {humidity}%")
-        print(f"Wind Speed: {wind_speed} m/s")
+        print(f"Wind Speed: {windspeed} m/s")
     else:
         print("error")
         
-city = input("Enter the city name: ")
+city = input("enter your city name: ")
 get_weather(city)
