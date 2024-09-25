@@ -12,16 +12,29 @@ def get_weather(city):
     if response.status_code == 200:
         data= response.json()
         
-        temp = data['main']['temp']
+        temp_Celsius= data['main']['temp']
+          #chaning temperature to fahreniet and rounding it 
+        temp_fahrenhiet = round(temp_Celsius *9/5) + 32
         description = data['weather'][0]['description']
         humidity = data['main']['humidity']
         windspeed = data['wind']['speed']
+        max_temp_Celsius  = data['main']['max_temp']
+        #chaning mzc temperature to fahreniet and rounding it 
+        max_temp_fahrenhiet = round(max_temp_Celsius *9/5) +32 
+        min_temp_Celsius  = data['main']['min_temp']
+        #chaning min temperature to fahreniet and rounding it 
+        min_temp_fahrenhiet = round(min_temp_Celsius *9/5) +32 
+        
+        
         
         print(f"City: {city}")
-        print(f"Temperature: {temp}°C")
+        print(f"Temperature: {temp_fahrenhiet}°F")
         print(f"Weather: {description}")
+        print(f'max temperature: {max_temp_fahrenhiet}')
+        print(f"min temperature: {min_temp_fahrenhiet}")
         print(f"Humidity: {humidity}%")
         print(f"Wind Speed: {windspeed} m/s")
+        
     else:
         print("error")
         
